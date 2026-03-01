@@ -1,0 +1,17 @@
+# Kursmaterial-Downloads (vorerst ignoriert)
+downloads_course_mat/
+
+# Node
+node_modules/
+
+# Umgebungsvariablen
+.env
+config.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
