@@ -1,4 +1,8 @@
 const fs = require('fs');
+const http = require('http');
+
+///////////////////////////////////////////////////
+// FILES
 
 // Blocking, synchronous way
 /*
@@ -10,6 +14,7 @@ console.log('File written!');
 */
 
 // Non-blocking, aynchronous way
+/*
 fs.readFile('../downloads_course_mat/complete-node-bootcamp-master/1-node-farm/final/txt/start.txt', 'utf-8', (err, data1) => {
     if (err) return console.log('ERROR!');
 
@@ -25,5 +30,18 @@ fs.readFile('../downloads_course_mat/complete-node-bootcamp-master/1-node-farm/f
     });
 });
 console.log('Will read file!');
-
+*/
 // node.js is build around this philosophy of callBacks (new ES6 syntax)!!
+
+
+///////////////////////////////////////////////////
+// SERVER
+
+const server = http.createServer((req, res) => {
+    // console.log(req);
+    res.end('Hello from the server!');
+});
+
+server.listen(8000, '127.0.0.1', () => {
+    console.log('Listening to request on port 8000')
+});
