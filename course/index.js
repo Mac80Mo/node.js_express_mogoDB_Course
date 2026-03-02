@@ -38,14 +38,21 @@ console.log('Will read file!');
 ///////////////////////////////////////////////////
 // SERVER
 
+const data = fs.readFileSync('../downloads_course_mat/complete-node-bootcamp-master/1-node-farm/final/dev-data/data.json', 'utf-8')
+const dataObj = JSON.parse(data);
+
 const server = http.createServer((req, res) => {
     // console.log(req);
     // console.log(req.url);
     const pathName = req.url;
+    
     if(pathName === '/' || pathName === '/overview') {
         res.end('This is the OVERVIEW!');
     } else if (pathName === '/product') {
         res.end('This is the PRODUCT!');
+    } else if (pathName === '/api') {
+        res.writeHead(200, {'Content-type': 'application/json'});
+        res.end(data);
     } else {
         res.writeHead(404, {
             'Content-type': 'text/html',
